@@ -1,0 +1,4 @@
+*.sw?
+test/*
+*.pyc
+__pycache__/
