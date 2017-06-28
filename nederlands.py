@@ -20,7 +20,7 @@ VERBS = {
     'sluiten': {'imperfectum_p': 'sloten', 'perfectum': 'gesloten', 'engels': 'close', 'imperfectum_s': 'sloot', 'hulpwerkwoord': 'hebben'}, \
     'kijken': {'imperfectum_p': 'keken', 'perfectum': 'gekeken', 'engels': 'look', 'imperfectum_s': 'keek', 'hulpwerkwoord': 'hebben'}, \
     'laten': {'imperfectum_p': 'lieten', 'perfectum': 'gelaten', 'engels': 'let', 'imperfectum_s': 'liet', 'hulpwerkwoord': 'hebben'}, \
-    'vragen': {'imperfectum_p': 'vroegen', 'perfectum': 'gevraag', 'engels': 'ask', 'imperfectum_s': 'vroeg', 'hulpwerkwoord': 'hebben'}, \
+    'vragen': {'imperfectum_p': 'vroegen', 'perfectum': 'gevraagd', 'engels': 'ask', 'imperfectum_s': 'vroeg', 'hulpwerkwoord': 'hebben'}, \
     'staan': {'imperfectum_p': 'stonden', 'perfectum': 'gestaan', 'engels': 'stand', 'imperfectum_s': 'stond', 'hulpwerkwoord': 'hebben'}, \
     'weten': {'imperfectum_p': 'wisten', 'perfectum': 'geweten', 'engels': 'know', 'imperfectum_s': 'wist', 'hulpwerkwoord': 'hebben'}, \
     'begrijpen': {'imperfectum_p': 'begrepen', 'perfectum': 'begrepen', 'engels': 'understand', 'imperfectum_s': 'begreep', 'hulpwerkwoord': 'hebben'}, \
@@ -76,6 +76,7 @@ class Game(object):
         self.gid = gid
         self.answers = []
         self.score = 0.0
+        self.score_max = 0
 
     def add_answer(self, answer):
         # convert response to something more mangeable
@@ -91,9 +92,10 @@ class Game(object):
                     answer[tag] = '<font color="green">{}</font>'.format(answer[tag])
                 else: 
                     answer[tag] = '<strike>{}</strike> (<font color="red"><strong>{}</strong></font>)'.format(answer[tag], sol[tag])
-        
+
         answer['score'] = score
         self.score += score
+        self.score_max += 1
 
         self.answers.append(answer)
 
@@ -155,7 +157,7 @@ def stop(gid=None):
     results = []
 
     score = HTMLWRAP_HEAD
-    score += "Total score: {}!".format(g.score)
+    score += "Total score: {} / {}!".format(round(g.score, 2), g.score_max)
     score += '<br /><br />'
     score += g.get_results()
     score += '<br /><br />'
