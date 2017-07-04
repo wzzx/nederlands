@@ -10,7 +10,7 @@ from flask import Flask, redirect, request
 
 VERBS = {
     'vergeten': {'imperfectum_p': 'vergaten', 'perfectum': 'vergeten', 'engels': 'forget', 'imperfectum_s': 'vergat', 'hulpwerkwoord': 'zijn'}, \
-    'zeggen': {'imperfectum_p': 'zeiden', 'perfectum': 'gezegt', 'engels': 'say', 'imperfectum_s': 'zei', 'hulpwerkwoord': 'hebben'}, \
+    'zeggen': {'imperfectum_p': 'zeiden', 'perfectum': 'gezegd', 'engels': 'say', 'imperfectum_s': 'zei', 'hulpwerkwoord': 'hebben'}, \
     'worden': {'imperfectum_p': 'werden', 'perfectum': 'geworden', 'engels': 'become', 'imperfectum_s': 'werd', 'hulpwerkwoord': 'zijn'}, \
     'lezen': {'imperfectum_p': 'lazen', 'perfectum': 'gelezen', 'engels': 'read', 'imperfectum_s': 'las', 'hulpwerkwoord': 'hebben'}, \
     'kiezen': {'imperfectum_p': 'kozen', 'perfectum': 'gekozen', 'engels': 'choose', 'imperfectum_s': 'koos', 'hulpwerkwoord': 'hebben'}, \
